@@ -6,11 +6,11 @@ This is a simple graphical application that simulates a particle explosion. Each
 
 ## Parameters
 The application let's you change a series of parameters. They are:
-* Number of particles;
-* Curl of each particle;
-* Red Coefficient (How fast the red component of the RGB color spectrum changes);
-* Green Coefficient (How fast the green component of the RGB color spectrum changes); and
-* Blue Coefficient (How fast the blue component of the RGB color spectrum changes).
+* Number of particles (default = 1000);
+* Curl of each particle (default = 2);
+* Red Coefficient (How fast the red component of the RGB color spectrum changes) (default = 5);
+* Green Coefficient (How fast the green component of the RGB color spectrum changes) (default = 12); and
+* Blue Coefficient (How fast the blue component of the RGB color spectrum changes) (default = 10).
 
 ## Launching
-Using the terminal you can launch application on your own PC. To do this, you will need C++11. You can compile all the files using the MakeFile available in this repository by just typing: `make all`. This will create an executable called main, which can then be run by typing `./main`.
+Using the terminal you can launch application on your own PC. To do this, you will need C++11. You can compile all the files using the MakeFile available in this repository by just typing: `make all`. This will create an executable called main, which can then be run by typing `./main`. The parameters can be passed as arguments in the following order: Number of Particles, Curl, redCoef, greenCoef and blueCoef (E.g. `./main 1000 2 5 12 10` would pass the default values).
