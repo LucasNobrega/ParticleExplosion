@@ -2,47 +2,45 @@
 
 namespace particles {
 
-Swarm::Swarm() : lastTime(0) {
-    m_pParticles = new Particle[nParticles];
+Swarm::Swarm() : lastUpdate(0), Particles(nParticles) {
 }
 
-Swarm::Swarm(int nParticles, double curl) : lastTime(0), nParticles(nParticles) {
-    m_pParticles = new Particle[nParticles];
-       for (size_t i = 0; i < nParticles; i++) {
-        m_pParticles[i].curl = curl;
+Swarm::Swarm(int nParticles, double curl) : lastUpdate(0), Particles(nParticles) {
+    for (std::vector<Particle>::iterator it = Particles.begin(); it != Particles.end(); it++) {
+        it->setCurl(curl);
     }
 }
 
 Swarm::~Swarm() {
-    delete[] m_pParticles;
-}
-
-const Particle* const Swarm::getParticles() {
-    return m_pParticles;
+    std::vector<Particle>().swap(Particles);
 }
 
 void Swarm::update(int elapsed) {
-    int interval = elapsed - lastTime;
+    int interval = elapsed - lastUpdate;
 
-    for (size_t i = 0; i < this->getNParticles(); i++) {
-        m_pParticles[i].update(interval);
+    for (std::vector<Particle>::iterator it = this->getParticleVector().begin(); it != this->getParticleVector().end(); it++) {
+        it->update(interval);
     }
 
-    lastTime = elapsed;
+    lastUpdate = elapsed;
 }
 
 void Swarm::updateReverse(int elapsed) {
-    int interval = elapsed - lastTime;
+    int interval = elapsed - lastUpdate;
 
-    for (size_t i = 0; i < this->getNParticles(); i++) {
-        m_pParticles[i].updateReverse(interval);
+    for (auto it : Particles) {
+        it.updateReverse(interval);
     }
 
-    lastTime = elapsed;
+    lastUpdate = elapsed;
 }
 
 int Swarm::getNParticles() {
     return nParticles;
+}
+
+std::vector<Particle> &Swarm::getParticleVector() {
+    return Particles;
 }
 
 }  // namespace particles
