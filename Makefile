@@ -1,5 +1,5 @@
 #OBJS specifies which files to compile as part of the project
-OBJS = SDL_basic.cpp Screen.cpp Swarm.cpp Particle.cpp
+OBJS = main.cpp Screen.cpp Swarm.cpp Particle.cpp
 
 #CC specifies which compiler we're using
 CC = g++
