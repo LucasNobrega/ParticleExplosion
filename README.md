@@ -1,5 +1,5 @@
 # ParticleExplosion
-Graphical C++ 11 application using SDL. This application was based on [John Purcell's implementation](https://github.com/caveofprogramming/cplusplus-beginners/tree/master/Particle%20Motion/src).
+Graphical C++ 11 application using SDL. This application was based on [John Purcell's implementation](https://github.com/caveofprogramming).
 
 ## The application
 This is a simple graphical application that simulates a particle explosion. Each particle has a different speed and curl. The colors of the particle are all the same and changes over time following a sinusoidal function on each component of the RGB spectrum.
